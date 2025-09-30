@@ -5,4 +5,4 @@ Resources:
   BucketS3:
     Type: "AWS::S3::Bucket"
     Properties: 
-      BucketName: "bucket-armazenamento"
+      BucketName: "buckets3-armazenamento"
