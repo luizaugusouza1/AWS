@@ -3,7 +3,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: "Template CloudFromation EC2"
 Parameters:
   InstanceType:
-    Description: Enter t2.medium, t3.micro, t3.medium. Padrão é t2.micro.
+    Description: Enter t2.medium, t3.micro e t3.medium. Padrão é t2.micro.
     Type: String
     Default: t2.micro
     AllowedValues:
@@ -12,13 +12,26 @@ Parameters:
       - t3.micro
       - t3.medium
 
+  ImageId:
+    Description: Enter Ubuntu 24.04, Ubuntu 22.04, Windows Server 2025 e Windows Server 2022.
+    Type: String
+    AllowedValues:
+      #Ubuntu Server 24.04 LTS
+      - ami-0360c520857e3138f
+      #Ubuntu Server 22.04 LTS
+      - ami-0bbdd8c17ed981ef9
+      #Microsoft Windows Server 2025
+      - ami-0e3c2921641a4a215
+      #Microsoft Windows Server 2022
+      - ami-0e16d075ec2375cf5
+
 Resources:
   #Nome da Stack
   InstanceEc2:
     Type: "AWS::EC2::Instance"
     Properties:
       #Imagem de máquina da Amazon (AMI) WinServe2022
-      ImageId: ami-0e16d075ec2375cf5
+      ImageId: !Ref ImageId
       #Tipo de instância
       InstanceType: !Ref InstanceType
       #Tags
