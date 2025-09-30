@@ -25,6 +25,15 @@ Parameters:
       #Microsoft Windows Server 2022
       - ami-0e16d075ec2375cf5
 
+  Value:
+    Description: Enter Ubuntu 24.04, Ubuntu 22.04, Windows Server 2025 e Windows Server 2022.
+    Type: String
+    AllowedValues:
+      - Ubuntu Server 24.04 LTS
+      - Ubuntu Server 22.04 LTS
+      - Microsoft Windows Server 2025
+      - Microsoft Windows Server 2022
+
 Resources:
   #Nome da Stack
   InstanceEc2:
@@ -37,4 +46,4 @@ Resources:
       #Tags
       Tags:
         - Key: Name
-          Value: WinServer2022
+          Value: !Ref Value
