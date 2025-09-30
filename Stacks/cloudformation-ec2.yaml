@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: "2010-09-09"
+#Descrição
+Description: "Template CloudFromation EC2"
+Parameters:
+  InstanceType:
+    Description: Enter t2.medium, t3.micro, t3.medium. Padrão é t2.micro.
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+      - t2.micro
+      - t2.medium
+      - t3.micro
+      - t3.medium
+
+Resources:
+  #Nome da Stack
+  InstanceEc2:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      #Imagem de máquina da Amazon (AMI) WinServe2022
+      ImageId: ami-0e16d075ec2375cf5
+      #Tipo de instância
+      InstanceType: !Ref InstanceType
+      #Tags
+      Tags:
+        - Key: Name
+          Value: WinServer2022
